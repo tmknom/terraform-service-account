@@ -34,6 +34,33 @@ format                         Format code
 help                           Show help
 install                        Install requirements
 lint                           Lint code
+terraform-apply-audit          Run terraform apply audit
+terraform-apply-backend        Run terraform apply backend
+terraform-apply-datastore      Run terraform apply datastore
+terraform-apply-deployment     Run terraform apply deployment
+terraform-apply-frontend       Run terraform apply frontend
+terraform-apply-iam            Run terraform apply iam
+terraform-apply-monitoring     Run terraform apply monitoring
+terraform-apply-network        Run terraform apply network
+terraform-apply-secret         Run terraform apply secret
+terraform-destroy-audit        Run terraform destroy audit
+terraform-destroy-backend      Run terraform destroy backend
+terraform-destroy-datastore    Run terraform destroy datastore
+terraform-destroy-deployment   Run terraform destroy deployment
+terraform-destroy-frontend     Run terraform destroy frontend
+terraform-destroy-iam          Run terraform destroy iam
+terraform-destroy-monitoring   Run terraform destroy monitoring
+terraform-destroy-network      Run terraform destroy network
+terraform-destroy-secret       Run terraform destroy secret
+terraform-plan-audit           Run terraform plan audit
+terraform-plan-backend         Run terraform plan backend
+terraform-plan-datastore       Run terraform plan datastore
+terraform-plan-deployment      Run terraform plan deployment
+terraform-plan-frontend        Run terraform plan frontend
+terraform-plan-iam             Run terraform plan iam
+terraform-plan-monitoring      Run terraform plan monitoring
+terraform-plan-network         Run terraform plan network
+terraform-plan-secret          Run terraform plan secret
 upgrade                        Upgrade makefile
 ```
 
