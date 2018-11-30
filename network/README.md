@@ -59,6 +59,26 @@ Live network resources definition.
 | vpc_instance_tenancy                                      | Tenancy of instances spin up within VPC.                                                  |
 | vpc_main_route_table_id                                   | The ID of the main route table associated with this VPC.                                  |
 
+## Troubleshooting
+
+### Not exist Hosted Zone
+
+If you receive the following error message, Hosted Zone does not exist in Route 53.
+
+```shell
+Error: Error refreshing state: 1 error(s) occurred:
+
+* data.aws_route53_zone.default: 1 error(s) occurred:
+
+* data.aws_route53_zone.default: data.aws_route53_zone.default: no matching Route53Zone found
+```
+
+You should put domain name to SSM Parameter Store.
+
+```shell
+aws ssm put-parameter --overwrite --name "/terraform/network/domain_name/root" --type "SecureString" --value "<your_domain>"
+```
+
 ## References
 
 - [terraform-aws-vpc](https://github.com/tmknom/terraform-aws-vpc) - Terraform module which creates VPC resources on AWS.
