@@ -9,3 +9,11 @@ module "vpc" {
   private_subnet_cidr_blocks = ["${cidrsubnet(local.cidr_block, 8, 64)}", "${cidrsubnet(local.cidr_block, 8, 65)}"]
   private_availability_zones = ["ap-northeast-1a", "ap-northeast-1c"]
 }
+
+module "alb_certificate" {
+  source      = "git::https://github.com/tmknom/terraform-aws-acm-certificate.git?ref=tags/1.1.0"
+  domain_name = "${local.certificate_domain_name}"
+  zone_id     = "${local.zone_id}"
+
+  enabled = "${local.enabled_certificate}"
+}
