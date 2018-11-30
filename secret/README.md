@@ -14,7 +14,7 @@ make terraform-apply-secret
 Step 2 - Overwrite value
 
 ```shell
-aws ssm put-parameter --overwrite --name "root_domain_name" --type "SecureString" --value "<overwrite_value>"
+aws ssm put-parameter --overwrite --name "/terraform/network/domain_name/root" --type "SecureString" --value "<overwrite_value>"
 ```
 
 ## Resources
