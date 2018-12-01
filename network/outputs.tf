@@ -143,17 +143,17 @@ output "private_egress_network_acl_rule_id" {
   description = "The ID of the private egress network ACL Rule."
 }
 
-output "alb_certificate_acm_certificate_id" {
+output "alb_certificate_id" {
   value       = "${module.alb_certificate.acm_certificate_id}"
   description = "The ARN of the alb certificate."
 }
 
-output "alb_certificate_acm_certificate_arn" {
+output "alb_certificate_arn" {
   value       = "${module.alb_certificate.acm_certificate_arn}"
   description = "The ARN of the alb certificate."
 }
 
-output "alb_certificate_acm_certificate_domain_validation_options" {
+output "alb_certificate_domain_validation_options" {
   value       = "${module.alb_certificate.acm_certificate_domain_validation_options}"
   description = "A list of attributes to feed into other resources to complete alb certificate validation."
 }
