@@ -14,6 +14,7 @@
 #### Terraform variables
 
 ```shell
+export TF_VAR_enable_destruction=<true|false>
 export TF_VAR_terraform_backend_bucket_name=<your-bucket>
 ```
 
