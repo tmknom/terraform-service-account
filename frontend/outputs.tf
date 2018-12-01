@@ -1,3 +1,13 @@
+output "alb_alias_route53_record_fqdns" {
+  value       = "${aws_route53_record.alb_alias.fqdn}"
+  description = "FQDN built using the alb alias zone domain and name."
+}
+
+output "alb_alias_route53_record_names" {
+  value       = "${aws_route53_record.alb_alias.name}"
+  description = "The name of the alb alias record."
+}
+
 output "alb_id" {
   value       = "${module.alb.alb_id}"
   description = "The ARN of the load balancer (matches arn)."
