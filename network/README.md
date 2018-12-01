@@ -82,4 +82,4 @@ aws ssm put-parameter --overwrite --name "/terraform/network/domain_name/root" -
 ## References
 
 - [terraform-aws-vpc](https://github.com/tmknom/terraform-aws-vpc) - Terraform module which creates VPC resources on AWS.
-- [terraform-aws-acm-certificate](https://github.com/tmknom/terraform-aws-acm-certificate)
+- [terraform-aws-acm-certificate](https://github.com/tmknom/terraform-aws-acm-certificate) - Terraform module which creates ACM certificate resources on AWS.
