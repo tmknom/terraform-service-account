@@ -16,10 +16,13 @@ MONITORING_DIR := ./monitoring
 NETWORK_DIR := ./network
 SECRET_DIR := ./secret
 
+# Define TF_VAR_terraform_backend_bucket_name in environment variable in advance.
+TERRAFORM_BACKEND_BUCKET_NAME := $${TF_VAR_terraform_backend_bucket_name}
+
 
 # audit
 terraform-plan-audit: ## Run terraform plan audit
-	$(call terraform,${AUDIT_DIR},init)
+	$(call terraform,${AUDIT_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${AUDIT_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-audit: ## Run terraform apply audit
@@ -31,7 +34,7 @@ terraform-destroy-audit: ## Run terraform destroy audit
 
 # backend
 terraform-plan-backend: ## Run terraform plan backend
-	$(call terraform,${BACKEND_DIR},init)
+	$(call terraform,${BACKEND_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${BACKEND_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-backend: ## Run terraform apply backend
@@ -43,7 +46,7 @@ terraform-destroy-backend: ## Run terraform destroy backend
 
 # datastore
 terraform-plan-datastore: ## Run terraform plan datastore
-	$(call terraform,${DATASTORE_DIR},init)
+	$(call terraform,${DATASTORE_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${DATASTORE_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-datastore: ## Run terraform apply datastore
@@ -55,7 +58,7 @@ terraform-destroy-datastore: ## Run terraform destroy datastore
 
 # deployment
 terraform-plan-deployment: ## Run terraform plan deployment
-	$(call terraform,${DEPLOYMENT_DIR},init)
+	$(call terraform,${DEPLOYMENT_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${DEPLOYMENT_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-deployment: ## Run terraform apply deployment
@@ -67,7 +70,7 @@ terraform-destroy-deployment: ## Run terraform destroy deployment
 
 # frontend
 terraform-plan-frontend: ## Run terraform plan frontend
-	$(call terraform,${FRONTEND_DIR},init)
+	$(call terraform,${FRONTEND_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${FRONTEND_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-frontend: ## Run terraform apply frontend
@@ -79,7 +82,7 @@ terraform-destroy-frontend: ## Run terraform destroy frontend
 
 # iam
 terraform-plan-iam: ## Run terraform plan iam
-	$(call terraform,${IAM_DIR},init)
+	$(call terraform,${IAM_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${IAM_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-iam: ## Run terraform apply iam
@@ -91,7 +94,7 @@ terraform-destroy-iam: ## Run terraform destroy iam
 
 # monitoring
 terraform-plan-monitoring: ## Run terraform plan monitoring
-	$(call terraform,${MONITORING_DIR},init)
+	$(call terraform,${MONITORING_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${MONITORING_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-monitoring: ## Run terraform apply monitoring
@@ -103,7 +106,7 @@ terraform-destroy-monitoring: ## Run terraform destroy monitoring
 
 # network
 terraform-plan-network: ## Run terraform plan network
-	$(call terraform,${NETWORK_DIR},init)
+	$(call terraform,${NETWORK_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${NETWORK_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-network: ## Run terraform apply network
@@ -115,7 +118,7 @@ terraform-destroy-network: ## Run terraform destroy network
 
 # secret
 terraform-plan-secret: ## Run terraform plan secret
-	$(call terraform,${SECRET_DIR},init)
+	$(call terraform,${SECRET_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
 	$(call terraform,${SECRET_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-secret: ## Run terraform apply secret
