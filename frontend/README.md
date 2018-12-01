@@ -19,6 +19,12 @@ Live frontend resources definition.
 - Enable HTTP to HTTPS redirect
 - Use AWS recommended SSL Policy
 
+## Inputs
+
+| Name                          | Description                               |  Type  | Default | Required |
+| ----------------------------- | ----------------------------------------- | :----: | :-----: | :------: |
+| terraform_backend_bucket_name | The Bucket Name of the terraform backend. | string |    -    |   yes    |
+
 ## Outputs
 
 | Name                                    | Description                                                                                |
