@@ -9,6 +9,7 @@ Live frontend resources definition.
 - Target Group
 - Security Group for ALB
 - S3 Bucket for ALB Logging
+- Route 53 Record for ALB
 
 ## Design
 
@@ -29,6 +30,8 @@ Live frontend resources definition.
 
 | Name                                    | Description                                                                                |
 | --------------------------------------- | ------------------------------------------------------------------------------------------ |
+| alb_alias_route53_record_fqdns          | FQDN built using the alb alias zone domain and name.                                       |
+| alb_alias_route53_record_names          | The name of the alb alias record.                                                          |
 | alb_arn                                 | The ARN of the load balancer (matches id).                                                 |
 | alb_arn_suffix                          | The ARN suffix for use with CloudWatch Metrics.                                            |
 | alb_dns_name                            | The DNS name of the load balancer.                                                         |

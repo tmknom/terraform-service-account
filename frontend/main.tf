@@ -1,3 +1,15 @@
+resource "aws_route53_record" "alb_alias" {
+  zone_id = "${local.zone_id}"
+  name    = "service.${local.root_domain_name}"
+  type    = "A"
+
+  alias {
+    name                   = "${module.alb.alb_dns_name}"
+    zone_id                = "${module.alb.alb_zone_id}"
+    evaluate_target_health = true
+  }
+}
+
 module "alb" {
   source             = "git::https://github.com/tmknom/terraform-aws-alb.git?ref=tags/1.3.0"
   name               = "app"
