@@ -23,106 +23,106 @@ TERRAFORM_BACKEND_BUCKET_NAME := $${TF_VAR_terraform_backend_bucket_name}
 # audit
 terraform-plan-audit: ## Run terraform plan audit
 	$(call terraform,${AUDIT_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${AUDIT_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${AUDIT_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-audit: ## Run terraform apply audit
-	$(call terraform,${AUDIT_DIR},apply)
+	$(call terraform,${AUDIT_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-audit: ## Run terraform destroy audit
-	$(call terraform,${AUDIT_DIR},destroy)
+	$(call terraform,${AUDIT_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # backend
 terraform-plan-backend: ## Run terraform plan backend
 	$(call terraform,${BACKEND_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${BACKEND_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${BACKEND_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-backend: ## Run terraform apply backend
-	$(call terraform,${BACKEND_DIR},apply)
+	$(call terraform,${BACKEND_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-backend: ## Run terraform destroy backend
-	$(call terraform,${BACKEND_DIR},destroy)
+	$(call terraform,${BACKEND_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # datastore
 terraform-plan-datastore: ## Run terraform plan datastore
 	$(call terraform,${DATASTORE_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${DATASTORE_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${DATASTORE_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-datastore: ## Run terraform apply datastore
-	$(call terraform,${DATASTORE_DIR},apply)
+	$(call terraform,${DATASTORE_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-datastore: ## Run terraform destroy datastore
-	$(call terraform,${DATASTORE_DIR},destroy)
+	$(call terraform,${DATASTORE_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # deployment
 terraform-plan-deployment: ## Run terraform plan deployment
 	$(call terraform,${DEPLOYMENT_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${DEPLOYMENT_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${DEPLOYMENT_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-deployment: ## Run terraform apply deployment
-	$(call terraform,${DEPLOYMENT_DIR},apply)
+	$(call terraform,${DEPLOYMENT_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-deployment: ## Run terraform destroy deployment
-	$(call terraform,${DEPLOYMENT_DIR},destroy)
+	$(call terraform,${DEPLOYMENT_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # frontend
 terraform-plan-frontend: ## Run terraform plan frontend
 	$(call terraform,${FRONTEND_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${FRONTEND_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${FRONTEND_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-frontend: ## Run terraform apply frontend
-	$(call terraform,${FRONTEND_DIR},apply)
+	$(call terraform,${FRONTEND_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-frontend: ## Run terraform destroy frontend
-	$(call terraform,${FRONTEND_DIR},destroy)
+	$(call terraform,${FRONTEND_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # iam
 terraform-plan-iam: ## Run terraform plan iam
 	$(call terraform,${IAM_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${IAM_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${IAM_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-iam: ## Run terraform apply iam
-	$(call terraform,${IAM_DIR},apply)
+	$(call terraform,${IAM_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-iam: ## Run terraform destroy iam
-	$(call terraform,${IAM_DIR},destroy)
+	$(call terraform,${IAM_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # monitoring
 terraform-plan-monitoring: ## Run terraform plan monitoring
 	$(call terraform,${MONITORING_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${MONITORING_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${MONITORING_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-monitoring: ## Run terraform apply monitoring
-	$(call terraform,${MONITORING_DIR},apply)
+	$(call terraform,${MONITORING_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-monitoring: ## Run terraform destroy monitoring
-	$(call terraform,${MONITORING_DIR},destroy)
+	$(call terraform,${MONITORING_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # network
 terraform-plan-network: ## Run terraform plan network
 	$(call terraform,${NETWORK_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${NETWORK_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${NETWORK_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-network: ## Run terraform apply network
-	$(call terraform,${NETWORK_DIR},apply)
+	$(call terraform,${NETWORK_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-network: ## Run terraform destroy network
-	$(call terraform,${NETWORK_DIR},destroy)
+	$(call terraform,${NETWORK_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 
 # secret
 terraform-plan-secret: ## Run terraform plan secret
 	$(call terraform,${SECRET_DIR},init,-backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}")
-	$(call terraform,${SECRET_DIR},plan) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+	$(call terraform,${SECRET_DIR},plan,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
 terraform-apply-secret: ## Run terraform apply secret
-	$(call terraform,${SECRET_DIR},apply)
+	$(call terraform,${SECRET_DIR},apply,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
 
 terraform-destroy-secret: ## Run terraform destroy secret
-	$(call terraform,${SECRET_DIR},destroy)
+	$(call terraform,${SECRET_DIR},destroy,-var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME})
