@@ -11,6 +11,14 @@
 
 ### Configure environment variables
 
+#### Terraform variables
+
+```shell
+export TF_VAR_terraform_backend_bucket_name=<your-bucket>
+```
+
+#### AWS credentials
+
 ```shell
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
