@@ -1,5 +1,5 @@
 module "vpc" {
-  source     = "git::https://github.com/tmknom/terraform-aws-vpc.git?ref=tags/1.0.0"
+  source     = "git::https://github.com/tmknom/terraform-aws-vpc.git?ref=tags/1.1.0"
   cidr_block = "${local.cidr_block}"
   name       = "service"
 
