@@ -11,7 +11,7 @@ resource "aws_route53_record" "alb_alias" {
 }
 
 module "alb" {
-  source             = "git::https://github.com/tmknom/terraform-aws-alb.git?ref=tags/1.3.0"
+  source             = "git::https://github.com/tmknom/terraform-aws-alb.git?ref=tags/1.4.1"
   name               = "app"
   vpc_id             = "${local.vpc_id}"
   subnets            = "${local.subnet_ids}"
