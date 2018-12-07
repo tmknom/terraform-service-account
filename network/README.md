@@ -29,12 +29,21 @@ Live network resources definition.
 | alb_certificate_id                        | The ARN of the alb certificate.                                                           |
 | alb_certificate_route53_record_fqdns      | FQDN built using the zone domain and name for alb certificate.                            |
 | alb_certificate_route53_record_names      | The name of the record for alb certificate.                                               |
+| eip_nat_gateway_ids                       | Contains the EIP allocation IDs.                                                          |
+| eip_nat_gateway_private_ips               | Contains the private IP addresses (if in VPC).                                            |
+| eip_nat_gateway_public_ips                | Contains the public IP addresses.                                                         |
 | internet_gateway_id                       | The ID of the Internet Gateway.                                                           |
+| nat_gateway_allocation_ids                | The Allocation IDs of the Elastic IP address for the gateways.                            |
+| nat_gateway_ids                           | The IDs of the NAT Gateways.                                                              |
+| nat_gateway_network_interface_ids         | The ENI IDs of the network interface created by the NAT gateways.                         |
+| nat_gateway_private_ips                   | The private IP addresses of the NAT Gateways.                                             |
+| nat_gateway_public_ips                    | The public IP addresses of the NAT Gateways.                                              |
+| nat_gateway_subnet_ids                    | The Subnet IDs of the subnet in which the NAT gateways are placed.                        |
 | private_egress_network_acl_rule_id        | The ID of the private egress network ACL Rule.                                            |
 | private_ingress_network_acl_rule_id       | The ID of the private ingress network ACL Rule.                                           |
 | private_network_acl_id                    | The ID of the private network ACL.                                                        |
 | private_route_table_association_ids       | The IDs of the private associations.                                                      |
-| private_route_table_id                    | The ID of the private routing table.                                                      |
+| private_route_table_ids                   | The IDs of the private routing tables.                                                    |
 | private_subnet_arns                       | The ARNs of the private subnets.                                                          |
 | private_subnet_availability_zones         | The Availability Zones for the private subnets.                                           |
 | private_subnet_cidr_blocks                | The CIDR blocks for the private subnets.                                                  |
