@@ -13,6 +13,10 @@ module "vpc" {
   #       If you have resources in multiple Availability Zones and they share one NAT Gateway, in the event that
   #       the NAT Gateway’s Availability Zone is down, resources in the other Availability Zones lose internet access.
   enabled_single_nat_gateway = true
+
+  # WARNING: If in production environment, you should set true at enabled_nat_gateway.
+  #          ECS can not connect with ECR unless NAT Gateway is existed.
+  enabled_nat_gateway = true
 }
 
 module "alb_certificate" {
