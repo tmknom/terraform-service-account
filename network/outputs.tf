@@ -118,9 +118,54 @@ output "private_subnet_availability_zones" {
   description = "The Availability Zones for the private subnets."
 }
 
-output "private_route_table_id" {
-  value       = "${module.vpc.private_route_table_id}"
-  description = "The ID of the private routing table."
+output "eip_nat_gateway_ids" {
+  value       = "${module.vpc.eip_nat_gateway_ids}"
+  description = "Contains the EIP allocation IDs."
+}
+
+output "eip_nat_gateway_private_ips" {
+  value       = "${module.vpc.eip_nat_gateway_private_ips}"
+  description = "Contains the private IP addresses (if in VPC)."
+}
+
+output "eip_nat_gateway_public_ips" {
+  value       = "${module.vpc.eip_nat_gateway_public_ips}"
+  description = "Contains the public IP addresses."
+}
+
+output "nat_gateway_ids" {
+  value       = "${module.vpc.nat_gateway_ids}"
+  description = "The IDs of the NAT Gateways."
+}
+
+output "nat_gateway_allocation_ids" {
+  value       = "${module.vpc.nat_gateway_allocation_ids}"
+  description = "The Allocation IDs of the Elastic IP address for the gateways."
+}
+
+output "nat_gateway_subnet_ids" {
+  value       = "${module.vpc.nat_gateway_subnet_ids}"
+  description = "The Subnet IDs of the subnet in which the NAT gateways are placed."
+}
+
+output "nat_gateway_network_interface_ids" {
+  value       = "${module.vpc.nat_gateway_network_interface_ids}"
+  description = "The ENI IDs of the network interface created by the NAT gateways."
+}
+
+output "nat_gateway_private_ips" {
+  value       = "${module.vpc.nat_gateway_private_ips}"
+  description = "The private IP addresses of the NAT Gateways."
+}
+
+output "nat_gateway_public_ips" {
+  value       = "${module.vpc.nat_gateway_public_ips}"
+  description = "The public IP addresses of the NAT Gateways."
+}
+
+output "private_route_table_ids" {
+  value       = "${module.vpc.private_route_table_ids}"
+  description = "The IDs of the private routing tables."
 }
 
 output "private_route_table_association_ids" {
