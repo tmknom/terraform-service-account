@@ -61,6 +61,7 @@ terraform-destroy-iam          Run terraform destroy iam
 terraform-destroy-monitoring   Run terraform destroy monitoring
 terraform-destroy-network      Run terraform destroy network
 terraform-destroy-secret       Run terraform destroy secret
+terraform-plan-all             Run terraform plan all
 terraform-plan-audit           Run terraform plan audit
 terraform-plan-backend         Run terraform plan backend
 terraform-plan-datastore       Run terraform plan datastore

@@ -25,6 +25,10 @@ TERRAFORM_BACKEND_BUCKET_NAME_OPTION := -var terraform_backend_bucket_name=${TER
 ENABLE_DESTRUCTION_OPTION := -var enable_destruction=${ENABLE_DESTRUCTION}
 TERRAFORM_OPTIONS := ${TERRAFORM_BACKEND_BUCKET_NAME_OPTION} ${ENABLE_DESTRUCTION_OPTION}
 
+# all
+terraform-plan-all: terraform-plan-audit terraform-plan-backend terraform-plan-datastore terraform-plan-deployment terraform-plan-frontend terraform-plan-iam terraform-plan-monitoring terraform-plan-network terraform-plan-secret ## Run terraform plan all
+
+
 # audit
 terraform-plan-audit: ## Run terraform plan audit
 	$(call terraform,${AUDIT_DIR},init,${TERRAFORM_INIT_OPTION})
