@@ -83,6 +83,31 @@ output "alb_target_group_name" {
   description = "The name of the Target Group."
 }
 
+output "alb_target_group_port" {
+  value       = "${module.alb.alb_target_group_port}"
+  description = "The port of the Target Group."
+}
+
+output "https_alb_listener_rule_id" {
+  value       = "${module.alb.https_alb_listener_rule_id}"
+  description = "The ARN of the HTTPS rule (matches arn)"
+}
+
+output "https_alb_listener_rule_arn" {
+  value       = "${module.alb.https_alb_listener_rule_arn}"
+  description = "The ARN of the HTTPS rule (matches id)"
+}
+
+output "http_alb_listener_rule_id" {
+  value       = "${module.alb.http_alb_listener_rule_id}"
+  description = "The ARN of the HTTP rule (matches arn)"
+}
+
+output "http_alb_listener_rule_arn" {
+  value       = "${module.alb.http_alb_listener_rule_arn}"
+  description = "The ARN of the HTTP rule (matches id)"
+}
+
 output "alb_security_group_id" {
   value       = "${module.alb.security_group_id}"
   description = "The ID of the alb security group."
