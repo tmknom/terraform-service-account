@@ -1,3 +1,9 @@
+# Customer master keys
+module "default_key" {
+  source = "git::https://github.com/tmknom/terraform-aws-kms.git?ref=tags/1.1.0"
+  name   = "default"
+}
+
 # Domain name
 module "root_domain_name" {
   source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.1.0"

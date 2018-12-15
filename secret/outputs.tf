@@ -1,3 +1,23 @@
+output "default_kms_key_arn" {
+  value       = "${module.default_key.kms_key_arn}"
+  description = "The Amazon Resource Name (ARN) of the default key."
+}
+
+output "default_kms_key_id" {
+  value       = "${module.default_key.kms_key_arn}"
+  description = "The globally unique identifier for the default key."
+}
+
+output "default_kms_alias_arn" {
+  value       = "${module.default_key.kms_key_arn}"
+  description = "The Amazon Resource Name (ARN) of the default key alias."
+}
+
+output "default_kms_alias_target_key_arn" {
+  value       = "${module.default_key.kms_key_arn}"
+  description = "The Amazon Resource Name (ARN) of the default target key identifier."
+}
+
 output "root_domain_name_ssm_parameter_arn" {
   value       = "${module.root_domain_name.ssm_parameter_arn}"
   description = "The ARN of the root domain name parameter."
