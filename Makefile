@@ -27,124 +27,124 @@ ENABLE_DESTRUCTION_OPTION := -var enable_destruction=${ENABLE_DESTRUCTION}
 TERRAFORM_OPTIONS := ${TERRAFORM_BACKEND_BUCKET_NAME_OPTION} ${ENABLE_DESTRUCTION_OPTION}
 
 # all
-terraform-plan-all: terraform-plan-audit terraform-plan-backend terraform-plan-datastore terraform-plan-deployment terraform-plan-frontend terraform-plan-iam terraform-plan-monitoring terraform-plan-network terraform-plan-secret ## Run terraform plan all
+plan-all: plan-audit plan-backend plan-datastore plan-deployment plan-frontend plan-iam plan-monitoring plan-network plan-secret ## Run terraform plan all
 
 
 # audit
-terraform-plan-audit: ## Run terraform plan audit
+plan-audit: ## Run terraform plan audit
 	$(call terraform,${AUDIT_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${AUDIT_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-audit: ## Run terraform apply audit
+apply-audit: ## Run terraform apply audit
 	$(call terraform,${AUDIT_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-audit: ## Run terraform destroy audit
+destroy-audit: ## Run terraform destroy audit
 	$(call terraform,${AUDIT_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # backend
-terraform-plan-backend: ## Run terraform plan backend
+plan-backend: ## Run terraform plan backend
 	$(call terraform,${BACKEND_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${BACKEND_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-backend: ## Run terraform apply backend
+apply-backend: ## Run terraform apply backend
 	$(call terraform,${BACKEND_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-backend: ## Run terraform destroy backend
+destroy-backend: ## Run terraform destroy backend
 	$(call terraform,${BACKEND_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # datastore/mysql
-terraform-plan-datastore-mysql: ## Run terraform plan datastore/mysql
+plan-datastore-mysql: ## Run terraform plan datastore/mysql
 	$(call terraform,${DATASTORE_MYSQL_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${DATASTORE_MYSQL_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-datastore-mysql: ## Run terraform apply datastore/mysql
+apply-datastore-mysql: ## Run terraform apply datastore/mysql
 	$(call terraform,${DATASTORE_MYSQL_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-datastore-mysql: ## Run terraform destroy datastore/mysql
+destroy-datastore-mysql: ## Run terraform destroy datastore/mysql
 	$(call terraform,${DATASTORE_MYSQL_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # datastore/redis
-terraform-plan-datastore-redis: ## Run terraform plan datastore/redis
+plan-datastore-redis: ## Run terraform plan datastore/redis
 	$(call terraform,${DATASTORE_REDIS_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${DATASTORE_REDIS_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-datastore-redis: ## Run terraform apply datastore/redis
+apply-datastore-redis: ## Run terraform apply datastore/redis
 	$(call terraform,${DATASTORE_REDIS_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-datastore-redis: ## Run terraform destroy datastore/redis
+destroy-datastore-redis: ## Run terraform destroy datastore/redis
 	$(call terraform,${DATASTORE_REDIS_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # deployment
-terraform-plan-deployment: ## Run terraform plan deployment
+plan-deployment: ## Run terraform plan deployment
 	$(call terraform,${DEPLOYMENT_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${DEPLOYMENT_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-deployment: ## Run terraform apply deployment
+apply-deployment: ## Run terraform apply deployment
 	$(call terraform,${DEPLOYMENT_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-deployment: ## Run terraform destroy deployment
+destroy-deployment: ## Run terraform destroy deployment
 	$(call terraform,${DEPLOYMENT_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # frontend
-terraform-plan-frontend: ## Run terraform plan frontend
+plan-frontend: ## Run terraform plan frontend
 	$(call terraform,${FRONTEND_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${FRONTEND_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-frontend: ## Run terraform apply frontend
+apply-frontend: ## Run terraform apply frontend
 	$(call terraform,${FRONTEND_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-frontend: ## Run terraform destroy frontend
+destroy-frontend: ## Run terraform destroy frontend
 	$(call terraform,${FRONTEND_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # iam
-terraform-plan-iam: ## Run terraform plan iam
+plan-iam: ## Run terraform plan iam
 	$(call terraform,${IAM_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${IAM_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-iam: ## Run terraform apply iam
+apply-iam: ## Run terraform apply iam
 	$(call terraform,${IAM_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-iam: ## Run terraform destroy iam
+destroy-iam: ## Run terraform destroy iam
 	$(call terraform,${IAM_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # monitoring
-terraform-plan-monitoring: ## Run terraform plan monitoring
+plan-monitoring: ## Run terraform plan monitoring
 	$(call terraform,${MONITORING_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${MONITORING_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-monitoring: ## Run terraform apply monitoring
+apply-monitoring: ## Run terraform apply monitoring
 	$(call terraform,${MONITORING_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-monitoring: ## Run terraform destroy monitoring
+destroy-monitoring: ## Run terraform destroy monitoring
 	$(call terraform,${MONITORING_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # network
-terraform-plan-network: ## Run terraform plan network
+plan-network: ## Run terraform plan network
 	$(call terraform,${NETWORK_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${NETWORK_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-network: ## Run terraform apply network
+apply-network: ## Run terraform apply network
 	$(call terraform,${NETWORK_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-network: ## Run terraform destroy network
+destroy-network: ## Run terraform destroy network
 	$(call terraform,${NETWORK_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # secret
-terraform-plan-secret: ## Run terraform plan secret
+plan-secret: ## Run terraform plan secret
 	$(call terraform,${SECRET_DIR},init,${TERRAFORM_INIT_OPTION})
 	$(call terraform,${SECRET_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-secret: ## Run terraform apply secret
+apply-secret: ## Run terraform apply secret
 	$(call terraform,${SECRET_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-secret: ## Run terraform destroy secret
+destroy-secret: ## Run terraform destroy secret
 	$(call terraform,${SECRET_DIR},destroy,${TERRAFORM_OPTIONS})

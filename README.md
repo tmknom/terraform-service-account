@@ -37,40 +37,43 @@ make install
 ### Makefile targets
 
 ```text
+apply-audit                    Run terraform apply audit
+apply-backend                  Run terraform apply backend
+apply-datastore-mysql          Run terraform apply datastore/mysql
+apply-datastore-redis          Run terraform apply datastore/redis
+apply-deployment               Run terraform apply deployment
+apply-frontend                 Run terraform apply frontend
+apply-iam                      Run terraform apply iam
+apply-monitoring               Run terraform apply monitoring
+apply-network                  Run terraform apply network
+apply-secret                   Run terraform apply secret
 check-format                   Check format code
 cibuild                        Execute CI build
+destroy-audit                  Run terraform destroy audit
+destroy-backend                Run terraform destroy backend
+destroy-datastore-mysql        Run terraform destroy datastore/mysql
+destroy-datastore-redis        Run terraform destroy datastore/redis
+destroy-deployment             Run terraform destroy deployment
+destroy-frontend               Run terraform destroy frontend
+destroy-iam                    Run terraform destroy iam
+destroy-monitoring             Run terraform destroy monitoring
+destroy-network                Run terraform destroy network
+destroy-secret                 Run terraform destroy secret
 format                         Format code
 help                           Show help
 install                        Install requirements
 lint                           Lint code
-terraform-apply-audit          Run terraform apply audit
-terraform-apply-backend        Run terraform apply backend
-terraform-apply-datastore      Run terraform apply datastore
-terraform-apply-deployment     Run terraform apply deployment
-terraform-apply-frontend       Run terraform apply frontend
-terraform-apply-iam            Run terraform apply iam
-terraform-apply-monitoring     Run terraform apply monitoring
-terraform-apply-network        Run terraform apply network
-terraform-apply-secret         Run terraform apply secret
-terraform-destroy-audit        Run terraform destroy audit
-terraform-destroy-backend      Run terraform destroy backend
-terraform-destroy-datastore    Run terraform destroy datastore
-terraform-destroy-deployment   Run terraform destroy deployment
-terraform-destroy-frontend     Run terraform destroy frontend
-terraform-destroy-iam          Run terraform destroy iam
-terraform-destroy-monitoring   Run terraform destroy monitoring
-terraform-destroy-network      Run terraform destroy network
-terraform-destroy-secret       Run terraform destroy secret
-terraform-plan-all             Run terraform plan all
-terraform-plan-audit           Run terraform plan audit
-terraform-plan-backend         Run terraform plan backend
-terraform-plan-datastore       Run terraform plan datastore
-terraform-plan-deployment      Run terraform plan deployment
-terraform-plan-frontend        Run terraform plan frontend
-terraform-plan-iam             Run terraform plan iam
-terraform-plan-monitoring      Run terraform plan monitoring
-terraform-plan-network         Run terraform plan network
-terraform-plan-secret          Run terraform plan secret
+plan-all                       Run terraform plan all
+plan-audit                     Run terraform plan audit
+plan-backend                   Run terraform plan backend
+plan-datastore-mysql           Run terraform plan datastore/mysql
+plan-datastore-redis           Run terraform plan datastore/redis
+plan-deployment                Run terraform plan deployment
+plan-frontend                  Run terraform plan frontend
+plan-iam                       Run terraform plan iam
+plan-monitoring                Run terraform plan monitoring
+plan-network                   Run terraform plan network
+plan-secret                    Run terraform plan secret
 upgrade                        Upgrade makefile
 ```
 
