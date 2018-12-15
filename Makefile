@@ -8,7 +8,8 @@ TERRAFORM_VERSION := 0.11.10
 # Constant definitions
 AUDIT_DIR := ./audit
 BACKEND_DIR := ./backend
-DATASTORE_DIR := ./datastore
+DATASTORE_MYSQL_DIR := ./datastore/mysql
+DATASTORE_REDIS_DIR := ./datastore/redis
 DEPLOYMENT_DIR := ./deployment
 FRONTEND_DIR := ./frontend
 IAM_DIR := ./iam
@@ -53,16 +54,28 @@ terraform-destroy-backend: ## Run terraform destroy backend
 	$(call terraform,${BACKEND_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
-# datastore
-terraform-plan-datastore: ## Run terraform plan datastore
-	$(call terraform,${DATASTORE_DIR},init,${TERRAFORM_INIT_OPTION})
-	$(call terraform,${DATASTORE_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+# datastore/mysql
+terraform-plan-datastore-mysql: ## Run terraform plan datastore/mysql
+	$(call terraform,${DATASTORE_MYSQL_DIR},init,${TERRAFORM_INIT_OPTION})
+	$(call terraform,${DATASTORE_MYSQL_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
 
-terraform-apply-datastore: ## Run terraform apply datastore
-	$(call terraform,${DATASTORE_DIR},apply,${TERRAFORM_OPTIONS})
+terraform-apply-datastore-mysql: ## Run terraform apply datastore/mysql
+	$(call terraform,${DATASTORE_MYSQL_DIR},apply,${TERRAFORM_OPTIONS})
 
-terraform-destroy-datastore: ## Run terraform destroy datastore
-	$(call terraform,${DATASTORE_DIR},destroy,${TERRAFORM_OPTIONS})
+terraform-destroy-datastore-mysql: ## Run terraform destroy datastore/mysql
+	$(call terraform,${DATASTORE_MYSQL_DIR},destroy,${TERRAFORM_OPTIONS})
+
+
+# datastore/redis
+terraform-plan-datastore-redis: ## Run terraform plan datastore/redis
+	$(call terraform,${DATASTORE_REDIS_DIR},init,${TERRAFORM_INIT_OPTION})
+	$(call terraform,${DATASTORE_REDIS_DIR},plan,${TERRAFORM_OPTIONS}) | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+
+terraform-apply-datastore-redis: ## Run terraform apply datastore/redis
+	$(call terraform,${DATASTORE_REDIS_DIR},apply,${TERRAFORM_OPTIONS})
+
+terraform-destroy-datastore-redis: ## Run terraform destroy datastore/redis
+	$(call terraform,${DATASTORE_REDIS_DIR},destroy,${TERRAFORM_OPTIONS})
 
 
 # deployment
