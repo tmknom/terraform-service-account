@@ -15,4 +15,8 @@ module "mysql" {
   # WARNING: If in production environment, you should delete this parameter.
   #          This parameter can cause service down.
   deletion_protection = "${var.enable_destruction ? false : true}"
+
+  # WARNING: If in production environment, you should delete this parameter.
+  #          This parameter can cause data lost.
+  skip_final_snapshot = "${var.enable_destruction}"
 }
