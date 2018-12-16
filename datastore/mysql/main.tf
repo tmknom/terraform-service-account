@@ -10,4 +10,8 @@ module "mysql" {
   subnet_ids          = ["${local.private_subnet_ids}"]
   vpc_id              = "${local.vpc_id}"
   ingress_cidr_blocks = ["${local.vpc_cidr_block}"]
+
+  # WARNING: If in production environment, you should delete this parameter.
+  #          This parameter can cause service down.
+  deletion_protection = "${var.enable_destruction ? false : true}"
 }

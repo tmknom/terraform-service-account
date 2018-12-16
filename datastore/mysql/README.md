@@ -40,9 +40,10 @@ The master user password constraints:
 
 ## Inputs
 
-| Name                          | Description                               |  Type  | Default | Required |
-| ----------------------------- | ----------------------------------------- | :----: | :-----: | :------: |
-| terraform_backend_bucket_name | The Bucket Name of the terraform backend. | string |    -    |   yes    |
+| Name                          | Description                                                                                                                                          |  Type  | Default | Required |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :------: |
+| terraform_backend_bucket_name | The Bucket Name of the terraform backend.                                                                                                            | string |    -    |   yes    |
+| enable_destruction            | WARNING: If true, the ALB and S3 bucket can be destroyed. This variable is used during testing. Be sure to specify false, if production environment. | string | `false` |    no    |
 
 ## Outputs
 
