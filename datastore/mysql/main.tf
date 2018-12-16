@@ -10,6 +10,7 @@ module "mysql" {
   subnet_ids          = ["${local.private_subnet_ids}"]
   vpc_id              = "${local.vpc_id}"
   ingress_cidr_blocks = ["${local.vpc_cidr_block}"]
+  kms_key_id          = "${local.default_kms_key_id}"
 
   # WARNING: If in production environment, you should delete this parameter.
   #          This parameter can cause service down.
