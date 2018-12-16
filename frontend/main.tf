@@ -1,6 +1,6 @@
 resource "aws_route53_record" "alb_alias" {
   zone_id = "${local.zone_id}"
-  name    = "service.${local.root_domain_name}"
+  name    = "${local.alb_domain_name}"
   type    = "A"
 
   alias {
@@ -10,13 +10,21 @@ resource "aws_route53_record" "alb_alias" {
   }
 }
 
+module "alb_certificate" {
+  source      = "git::https://github.com/tmknom/terraform-aws-acm-certificate.git?ref=tags/1.1.0"
+  domain_name = "${local.alb_domain_name}"
+  zone_id     = "${local.zone_id}"
+
+  enabled = "${local.enabled_certificate}"
+}
+
 module "alb" {
   source             = "git::https://github.com/tmknom/terraform-aws-alb.git?ref=tags/1.4.1"
   name               = "app"
   vpc_id             = "${local.vpc_id}"
   subnets            = "${local.subnet_ids}"
   access_logs_bucket = "${module.s3_lb_log.s3_bucket_id}"
-  certificate_arn    = "${local.certificate_arn}"
+  certificate_arn    = "${module.alb_certificate.acm_certificate_arn}"
 
   # WARNING: If in production environment, you should delete this parameter.
   #          This parameter can cause service down.

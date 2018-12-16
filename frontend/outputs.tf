@@ -8,6 +8,31 @@ output "alb_alias_route53_record_names" {
   description = "The name of the alb alias record."
 }
 
+output "alb_certificate_id" {
+  value       = "${module.alb_certificate.acm_certificate_id}"
+  description = "The ARN of the alb certificate."
+}
+
+output "alb_certificate_arn" {
+  value       = "${module.alb_certificate.acm_certificate_arn}"
+  description = "The ARN of the alb certificate."
+}
+
+output "alb_certificate_domain_validation_options" {
+  value       = "${module.alb_certificate.acm_certificate_domain_validation_options}"
+  description = "A list of attributes to feed into other resources to complete alb certificate validation."
+}
+
+output "alb_certificate_route53_record_fqdns" {
+  value       = "${module.alb_certificate.route53_record_fqdns}"
+  description = "FQDN built using the zone domain and name for alb certificate."
+}
+
+output "alb_certificate_route53_record_names" {
+  value       = "${module.alb_certificate.route53_record_names}"
+  description = "The name of the record for alb certificate."
+}
+
 output "alb_id" {
   value       = "${module.alb.alb_id}"
   description = "The ARN of the load balancer (matches arn)."
