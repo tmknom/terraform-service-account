@@ -18,11 +18,3 @@ module "vpc" {
   #          ECS can not connect with ECR unless NAT Gateway is existed.
   enabled_nat_gateway = true
 }
-
-module "alb_certificate" {
-  source      = "git::https://github.com/tmknom/terraform-aws-acm-certificate.git?ref=tags/1.1.0"
-  domain_name = "${local.certificate_domain_name}"
-  zone_id     = "${local.zone_id}"
-
-  enabled = "${local.enabled_certificate}"
-}
