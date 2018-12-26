@@ -88,57 +88,57 @@ output "ecs_task_definition_revision" {
   description = "The revision of the task in a particular family."
 }
 
-output "ecs_task_execution_role_arn" {
-  value       = "${module.ecs_fargate.ecs_task_execution_role_arn}"
-  description = "The Amazon Resource Name (ARN) specifying the ecs task execution."
+output "iam_role_arn" {
+  value       = "${module.ecs_fargate.iam_role_arn}"
+  description = "The Amazon Resource Name (ARN) specifying the IAM Role."
 }
 
-output "ecs_task_execution_role_create_date" {
-  value       = "${module.ecs_fargate.ecs_task_execution_role_create_date}"
-  description = "The creation date of the ecs task execution."
+output "iam_role_create_date" {
+  value       = "${module.ecs_fargate.iam_role_create_date}"
+  description = "The creation date of the IAM Role."
 }
 
-output "ecs_task_execution_role_unique_id" {
-  value       = "${module.ecs_fargate.ecs_task_execution_role_unique_id}"
-  description = "The stable and unique string identifying the ecs task execution."
+output "iam_role_unique_id" {
+  value       = "${module.ecs_fargate.iam_role_unique_id}"
+  description = "The stable and unique string identifying the IAM Role."
 }
 
-output "ecs_task_execution_role_name" {
-  value       = "${module.ecs_fargate.ecs_task_execution_role_name}"
-  description = "The name of the ecs task execution."
+output "iam_role_name" {
+  value       = "${module.ecs_fargate.iam_role_name}"
+  description = "The name of the IAM Role."
 }
 
-output "ecs_task_execution_role_description" {
-  value       = "${module.ecs_fargate.ecs_task_execution_role_description}"
-  description = "The description of the ecs task execution."
+output "iam_role_description" {
+  value       = "${module.ecs_fargate.iam_role_description}"
+  description = "The description of the IAM Role."
 }
 
-output "ecs_task_execution_policy_id" {
-  value       = "${module.ecs_fargate.ecs_task_execution_policy_id}"
-  description = "The ecs task execution policy's ID."
+output "iam_policy_id" {
+  value       = "${module.ecs_fargate.iam_policy_id}"
+  description = "The IAM Policy's ID."
 }
 
-output "ecs_task_execution_policy_arn" {
-  value       = "${module.ecs_fargate.ecs_task_execution_policy_arn}"
-  description = "The ARN assigned by AWS to this ecs task execution policy."
+output "iam_policy_arn" {
+  value       = "${module.ecs_fargate.iam_policy_arn}"
+  description = "The ARN assigned by AWS to this IAM Policy."
 }
 
-output "ecs_task_execution_policy_description" {
-  value       = "${module.ecs_fargate.ecs_task_execution_policy_description}"
-  description = "The description of the ecs task execution policy."
+output "iam_policy_description" {
+  value       = "${module.ecs_fargate.iam_policy_description}"
+  description = "The description of the IAM Policy."
 }
 
-output "ecs_task_execution_policy_name" {
-  value       = "${module.ecs_fargate.ecs_task_execution_policy_name}"
-  description = "The name of the ecs task execution policy."
+output "iam_policy_name" {
+  value       = "${module.ecs_fargate.iam_policy_name}"
+  description = "The name of the IAM Policy."
 }
 
-output "ecs_task_execution_policy_path" {
-  value       = "${module.ecs_fargate.ecs_task_execution_policy_path}"
-  description = "The path of the ecs task execution policy in IAM."
+output "iam_policy_path" {
+  value       = "${module.ecs_fargate.iam_policy_path}"
+  description = "The path of the IAM Policy."
 }
 
-output "ecs_task_execution_policy_document" {
-  value       = "${module.ecs_fargate.ecs_task_execution_policy_document}"
-  description = "The policy document of the ecs task execution policy."
+output "iam_policy_document" {
+  value       = "${module.ecs_fargate.iam_policy_document}"
+  description = "The policy document of the IAM Policy."
 }
