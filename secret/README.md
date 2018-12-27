@@ -15,6 +15,8 @@ Step 2 - Overwrite value
 
 ```shell
 aws ssm put-parameter --overwrite --name "/terraform/network/domain_name/root" --type "SecureString" --value "<overwrite_value>"
+aws ssm put-parameter --overwrite --name "/terraform/deployment/github/token" --type "SecureString" --value "<overwrite_value>"
+aws ssm put-parameter --overwrite --name "/terraform/deployment/github/organization" --type "SecureString" --value "<overwrite_value>"
 ```
 
 ## Resources
@@ -38,6 +40,16 @@ aws ssm put-parameter --overwrite --name "/terraform/network/domain_name/root" -
 | default_kms_alias_target_key_arn                    | The Amazon Resource Name (ARN) of the default target key identifier. |
 | default_kms_key_arn                                 | The Amazon Resource Name (ARN) of the default key.                   |
 | default_kms_key_id                                  | The globally unique identifier for the default key.                  |
+| github_organization_ssm_parameter_arn               | The ARN of the github organization parameter.                        |
+| github_organization_ssm_parameter_description       | The description of the github organization parameter.                |
+| github_organization_ssm_parameter_name              | The name of the github organization parameter.                       |
+| github_organization_ssm_parameter_type              | The type of the github organization parameter.                       |
+| github_organization_ssm_parameter_value             | The value of the github organization parameter.                      |
+| github_token_ssm_parameter_arn                      | The ARN of the github token parameter.                               |
+| github_token_ssm_parameter_description              | The description of the github token parameter.                       |
+| github_token_ssm_parameter_name                     | The name of the github token parameter.                              |
+| github_token_ssm_parameter_type                     | The type of the github token parameter.                              |
+| github_token_ssm_parameter_value                    | The value of the github token parameter.                             |
 | root_domain_name_ssm_parameter_arn                  | The ARN of the root domain name parameter.                           |
 | root_domain_name_ssm_parameter_description          | The description of the root domain name parameter.                   |
 | root_domain_name_ssm_parameter_name                 | The name of the root domain name parameter.                          |
