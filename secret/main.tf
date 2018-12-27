@@ -17,3 +17,14 @@ module "uninitialized_domain_name" {
   value  = "${local.uninitialized_domain_name}"
   type   = "String"
 }
+
+# GitHub
+module "github_token" {
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.1.0"
+  name   = "${local.github_path}/token"
+}
+
+module "github_organization" {
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.1.0"
+  name   = "${local.github_path}/organization"
+}

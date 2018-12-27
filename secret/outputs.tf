@@ -67,3 +67,53 @@ output "uninitialized_domain_name_ssm_parameter_value" {
   value       = "${module.uninitialized_domain_name.ssm_parameter_value}"
   description = "The value of the uninitialized domain name parameter."
 }
+
+output "github_token_ssm_parameter_arn" {
+  value       = "${module.github_token.ssm_parameter_arn}"
+  description = "The ARN of the github token parameter."
+}
+
+output "github_token_ssm_parameter_name" {
+  value       = "${module.github_token.ssm_parameter_name}"
+  description = "The name of the github token parameter."
+}
+
+output "github_token_ssm_parameter_description" {
+  value       = "${module.github_token.ssm_parameter_description}"
+  description = "The description of the github token parameter."
+}
+
+output "github_token_ssm_parameter_type" {
+  value       = "${module.github_token.ssm_parameter_type}"
+  description = "The type of the github token parameter."
+}
+
+output "github_token_ssm_parameter_value" {
+  value       = "${module.github_token.ssm_parameter_value}"
+  description = "The value of the github token parameter."
+}
+
+output "github_organization_ssm_parameter_arn" {
+  value       = "${module.github_organization.ssm_parameter_arn}"
+  description = "The ARN of the github organization parameter."
+}
+
+output "github_organization_ssm_parameter_name" {
+  value       = "${module.github_organization.ssm_parameter_name}"
+  description = "The name of the github organization parameter."
+}
+
+output "github_organization_ssm_parameter_description" {
+  value       = "${module.github_organization.ssm_parameter_description}"
+  description = "The description of the github organization parameter."
+}
+
+output "github_organization_ssm_parameter_type" {
+  value       = "${module.github_organization.ssm_parameter_type}"
+  description = "The type of the github organization parameter."
+}
+
+output "github_organization_ssm_parameter_value" {
+  value       = "${module.github_organization.ssm_parameter_value}"
+  description = "The value of the github organization parameter."
+}

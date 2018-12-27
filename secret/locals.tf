@@ -1,5 +1,6 @@
 locals {
   domain_name_path = "/terraform/network/domain_name"
+  github_path      = "/terraform/deployment/github"
 
   # If domain name was not stored, this value is set.
   #
