@@ -29,6 +29,10 @@ TERRAFORM_OPTIONS := ${TERRAFORM_BACKEND_BUCKET_NAME_OPTION} ${ENABLE_DESTRUCTIO
 # all
 plan-all: plan-audit plan-backend plan-datastore plan-deployment plan-frontend plan-iam plan-monitoring plan-network plan-secret ## Run terraform plan all
 
+# destroy only target
+destroy-only-target: ## Run terraform destroy with target option
+	$(call terraform,${STACK_DIR},destroy,${TERRAFORM_OPTIONS} -target=${TARGET})
+
 
 # audit
 plan-audit: ## Run terraform plan audit
