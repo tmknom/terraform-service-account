@@ -26,9 +26,16 @@ data "template_file" "container_definitions" {
   vars {
     container_name = "${local.container_name}"
     container_port = "${local.container_port}"
+    nginx_image    = "${module.nginx_ecr.ecr_repository_url}:latest"
   }
 }
 
 data "aws_iam_policy" "ecs_task_execution" {
   arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+}
+
+module "nginx_ecr" {
+  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/1.0.0"
+  name            = "nginx"
+  tag_prefix_list = ["release"]
 }
