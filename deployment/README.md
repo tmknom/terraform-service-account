@@ -60,6 +60,64 @@ Live deployment resources definition.
 | nginx_ecr_repository_registry_id    | The registry ID where the nginx repository was created.                                                         |
 | nginx_ecr_repository_url            | The URL of the nginx repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)        |
 
+## Troubleshooting
+
+### Bad credentials
+
+If you receive the following error message, GitHub credential is invalid.
+
+```shell
+1 error(s) occurred:
+
+* module.codepipeline.github_repository_webhook.default: 1 error(s) occurred:
+
+* github_repository_webhook.default: POST https://api.github.com/repos/your/repository/hooks: 401 Bad credentials []
+```
+
+You should put the github token to SSM Parameter Store.
+
+```shell
+aws ssm put-parameter --overwrite --name "/terraform/deployment/github/token" --type "SecureString" --value "<github_token>"
+```
+
+### Not exist organization
+
+If you receive the following error message, user or organization does not exist in GitHub.
+
+```shell
+1 error(s) occurred:
+
+* module.codepipeline.github_repository_webhook.default: 1 error(s) occurred:
+
+* github_repository_webhook.default: POST https://api.github.com/repos/your/repository/hooks: 404 Not Found []
+```
+
+You should put the github organization to SSM Parameter Store.
+
+```shell
+aws ssm put-parameter --overwrite --name "/terraform/deployment/github/organization" --type "SecureString" --value "<github_organization>"
+```
+
+### Invalid action declaration
+
+If you receive the following error message, CodePipeline resources can not update that's because
+[terraform-aws-codepipeline-for-ecs](https://github.com/tmknom/terraform-aws-codepipeline-for-ecs) module has constraints.
+
+```shell
+1 error(s) occurred:
+
+* module.codepipeline.aws_codepipeline.default: 1 error(s) occurred:
+
+* aws_codepipeline.default: [ERROR] Error updating CodePipeline (app): InvalidActionDeclarationException: Action configuration for action 'Source' is missing required configuration 'OAuthToken'
+```
+
+You should destroy current CodePipeline resources, and recreate new CodePipeline resources.
+
+```shell
+make destroy-only-target STACK_DIR=./deployment TARGET=module.codepipeline.aws_codepipeline.default
+make apply-deployment
+```
+
 ## References
 
 - [terraform-aws-ecr](https://github.com/tmknom/terraform-aws-ecr) - Terraform module which creates ECR resources on AWS.
