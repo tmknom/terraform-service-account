@@ -60,3 +60,9 @@ resource "aws_cloudwatch_log_group" "batch" {
   name              = "${local.batch_awslogs_group}"
   retention_in_days = "${local.retention_in_days}"
 }
+
+module "batch_ecr" {
+  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/1.0.0"
+  name            = "batch"
+  tag_prefix_list = ["release"]
+}

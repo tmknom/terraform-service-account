@@ -292,3 +292,23 @@ output "batch_ecs_task_execution_policy_document" {
   value       = "${module.ecs_scheduled_task.ecs_task_execution_policy_document}"
   description = "The policy document of the Batch ECS Task Execution IAM Policy."
 }
+
+output "batch_ecr_repository_arn" {
+  value       = "${module.batch_ecr.ecr_repository_arn}"
+  description = "Full ARN of the batch repository."
+}
+
+output "batch_ecr_repository_name" {
+  value       = "${module.batch_ecr.ecr_repository_name}"
+  description = "The name of the batch repository."
+}
+
+output "batch_ecr_repository_registry_id" {
+  value       = "${module.batch_ecr.ecr_repository_registry_id}"
+  description = "The registry ID where the batch repository was created."
+}
+
+output "batch_ecr_repository_url" {
+  value       = "${module.batch_ecr.ecr_repository_url}"
+  description = "The URL of the batch repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
+}
