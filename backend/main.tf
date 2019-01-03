@@ -4,18 +4,18 @@ resource "aws_ecs_cluster" "default" {
 }
 
 module "ecs_fargate" {
-  source                    = "git::https://github.com/tmknom/terraform-aws-ecs-fargate.git?ref=tags/1.2.0"
-  name                      = "app"
-  desired_count             = 2
-  container_name            = "${local.container_name}"
-  container_port            = "${local.container_port}"
-  cluster                   = "${aws_ecs_cluster.default.arn}"
-  subnets                   = ["${local.public_subnet_ids}"]
-  target_group_arn          = "${local.target_group_arn}"
-  vpc_id                    = "${local.vpc_id}"
-  container_definitions     = "${data.template_file.container_definitions.rendered}"
+  source                = "git::https://github.com/tmknom/terraform-aws-ecs-fargate.git?ref=tags/1.2.0"
+  name                  = "app"
+  desired_count         = 2
+  container_name        = "${local.container_name}"
+  container_port        = "${local.container_port}"
+  cluster               = "${aws_ecs_cluster.default.arn}"
+  subnets               = ["${local.public_subnet_ids}"]
+  target_group_arn      = "${local.target_group_arn}"
+  vpc_id                = "${local.vpc_id}"
+  container_definitions = "${data.template_file.container_definitions.rendered}"
 
-  assign_public_ip                  = true
+  assign_public_ip = true
 }
 
 data "template_file" "container_definitions" {
