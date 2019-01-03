@@ -50,7 +50,7 @@ data "template_file" "batch_container_definitions" {
 
   vars {
     container_name = "${local.batch_container_name}"
-    image          = "alpine:latest"
+    image          = "${module.batch_ecr.ecr_repository_url}:latest"
     awslogs_group  = "${local.batch_awslogs_group}"
     awslogs_region = "${local.awslogs_region}"
   }
