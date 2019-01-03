@@ -162,3 +162,133 @@ output "nginx_ecr_repository_url" {
   value       = "${module.nginx_ecr.ecr_repository_url}"
   description = "The URL of the nginx repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
 }
+
+output "cloudwatch_event_rule_arn" {
+  value       = "${module.ecs_scheduled_task.cloudwatch_event_rule_arn}"
+  description = "The Amazon Resource Name (ARN) of the rule."
+}
+
+output "ecs_events_role_arn" {
+  value       = "${module.ecs_scheduled_task.ecs_events_role_arn}"
+  description = "The Amazon Resource Name (ARN) specifying the CloudWatch Events IAM Role."
+}
+
+output "ecs_events_role_create_date" {
+  value       = "${module.ecs_scheduled_task.ecs_events_role_create_date}"
+  description = "The creation date of the IAM Role."
+}
+
+output "ecs_events_role_unique_id" {
+  value       = "${module.ecs_scheduled_task.ecs_events_role_unique_id}"
+  description = "The stable and unique string identifying the CloudWatch Events IAM Role."
+}
+
+output "ecs_events_role_name" {
+  value       = "${module.ecs_scheduled_task.ecs_events_role_name}"
+  description = "The name of the CloudWatch Events IAM Role."
+}
+
+output "ecs_events_role_description" {
+  value       = "${module.ecs_scheduled_task.ecs_events_role_description}"
+  description = "The description of the CloudWatch Events IAM Role."
+}
+
+output "ecs_events_policy_id" {
+  value       = "${module.ecs_scheduled_task.ecs_events_policy_id}"
+  description = "The CloudWatch Events IAM Policy's ID."
+}
+
+output "ecs_events_policy_arn" {
+  value       = "${module.ecs_scheduled_task.ecs_events_policy_arn}"
+  description = "The ARN assigned by AWS to this CloudWatch Events IAM Policy."
+}
+
+output "ecs_events_policy_description" {
+  value       = "${module.ecs_scheduled_task.ecs_events_policy_description}"
+  description = "The description of the CloudWatch Events IAM Policy."
+}
+
+output "ecs_events_policy_name" {
+  value       = "${module.ecs_scheduled_task.ecs_events_policy_name}"
+  description = "The name of the CloudWatch Events IAM Policy."
+}
+
+output "ecs_events_policy_path" {
+  value       = "${module.ecs_scheduled_task.ecs_events_policy_path}"
+  description = "The path of the CloudWatch Events IAM Policy."
+}
+
+output "ecs_events_policy_document" {
+  value       = "${module.ecs_scheduled_task.ecs_events_policy_document}"
+  description = "The policy document of the CloudWatch Events IAM Policy."
+}
+
+output "batch_ecs_task_definition_arn" {
+  value       = "${module.ecs_scheduled_task.ecs_task_definition_arn}"
+  description = "Full ARN of the Batch Task Definition (including both family and revision)."
+}
+
+output "batch_ecs_task_definition_family" {
+  value       = "${module.ecs_scheduled_task.ecs_task_definition_family}"
+  description = "The family of the Batch Task Definition."
+}
+
+output "batch_ecs_task_definition_revision" {
+  value       = "${module.ecs_scheduled_task.ecs_task_definition_revision}"
+  description = "The revision of the Batch Task in a particular family."
+}
+
+output "batch_ecs_task_execution_role_arn" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_role_arn}"
+  description = "The Amazon Resource Name (ARN) specifying the Batch ECS Task Execution IAM Role."
+}
+
+output "batch_ecs_task_execution_role_create_date" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_role_create_date}"
+  description = "The creation date of the Batch ECS Task Execution IAM Role."
+}
+
+output "batch_ecs_task_execution_role_unique_id" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_role_unique_id}"
+  description = "The stable and unique string identifying the Batch ECS Task Execution IAM Role."
+}
+
+output "batch_ecs_task_execution_role_name" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_role_name}"
+  description = "The name of the Batch ECS Task Execution IAM Role."
+}
+
+output "batch_ecs_task_execution_role_description" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_role_description}"
+  description = "The description of the Batch ECS Task Execution IAM Role."
+}
+
+output "batch_ecs_task_execution_policy_id" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_policy_id}"
+  description = "The Batch ECS Task Execution IAM Policy's ID."
+}
+
+output "batch_ecs_task_execution_policy_arn" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_policy_arn}"
+  description = "The ARN assigned by AWS to this Batch ECS Task Execution IAM Policy."
+}
+
+output "batch_ecs_task_execution_policy_description" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_policy_description}"
+  description = "The description of the Batch ECS Task Execution IAM Policy."
+}
+
+output "batch_ecs_task_execution_policy_name" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_policy_name}"
+  description = "The name of the Batch ECS Task Execution IAM Policy."
+}
+
+output "batch_ecs_task_execution_policy_path" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_policy_path}"
+  description = "The path of the Batch ECS Task Execution IAM Policy."
+}
+
+output "batch_ecs_task_execution_policy_document" {
+  value       = "${module.ecs_scheduled_task.ecs_task_execution_policy_document}"
+  description = "The policy document of the Batch ECS Task Execution IAM Policy."
+}
