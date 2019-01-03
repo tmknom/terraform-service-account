@@ -33,3 +33,30 @@ module "nginx_ecr" {
   name            = "nginx"
   tag_prefix_list = ["release"]
 }
+
+module "ecs_scheduled_task" {
+  source                = "git::https://github.com/tmknom/terraform-aws-ecs-scheduled-task.git?ref=tags/1.0.0"
+  schedule_expression   = "rate(30 minutes)"
+  name                  = "${local.batch_container_name}"
+  container_definitions = "${data.template_file.batch_container_definitions.rendered}"
+  cluster_arn           = "${aws_ecs_cluster.default.arn}"
+  subnets               = ["${local.public_subnet_ids}"]
+
+  assign_public_ip = true
+}
+
+data "template_file" "batch_container_definitions" {
+  template = "${file("${path.module}/container_definitions/batch.json")}"
+
+  vars {
+    container_name = "${local.batch_container_name}"
+    image          = "alpine:latest"
+    awslogs_group  = "${local.batch_awslogs_group}"
+    awslogs_region = "${local.awslogs_region}"
+  }
+}
+
+resource "aws_cloudwatch_log_group" "batch" {
+  name              = "${local.batch_awslogs_group}"
+  retention_in_days = "${local.retention_in_days}"
+}

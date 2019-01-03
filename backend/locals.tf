@@ -4,4 +4,12 @@ locals {
   target_group_arn  = "${data.terraform_remote_state.frontend.alb_target_group_arn}"
   public_subnet_ids = "${data.terraform_remote_state.network.public_subnet_ids}"
   vpc_id            = "${data.terraform_remote_state.network.vpc_id}"
+
+  batch_container_name = "batch"
+  batch_awslogs_group  = "/ecs-scheduled-task/batch"
+
+  awslogs_region    = "${data.aws_region.current.name}"
+  retention_in_days = 7
 }
+
+data "aws_region" "current" {}
