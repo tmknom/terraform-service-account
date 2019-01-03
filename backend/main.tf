@@ -50,7 +50,7 @@ data "template_file" "batch_container_definitions" {
 
   vars {
     container_name = "${local.batch_container_name}"
-    image          = "alpine:latest"
+    image          = "${module.batch_ecr.ecr_repository_url}:latest"
     awslogs_group  = "${local.batch_awslogs_group}"
     awslogs_region = "${local.awslogs_region}"
   }
@@ -59,4 +59,10 @@ data "template_file" "batch_container_definitions" {
 resource "aws_cloudwatch_log_group" "batch" {
   name              = "${local.batch_awslogs_group}"
   retention_in_days = "${local.retention_in_days}"
+}
+
+module "batch_ecr" {
+  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/1.0.0"
+  name            = "batch"
+  tag_prefix_list = ["release"]
 }
