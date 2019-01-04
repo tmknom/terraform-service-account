@@ -13,12 +13,12 @@ module "ecs_fargate" {
   subnets               = ["${local.public_subnet_ids}"]
   target_group_arn      = "${local.target_group_arn}"
   vpc_id                = "${local.vpc_id}"
-  container_definitions = "${data.template_file.container_definitions.rendered}"
+  container_definitions = "${data.template_file.app_container_definitions.rendered}"
 
   assign_public_ip = true
 }
 
-data "template_file" "container_definitions" {
+data "template_file" "app_container_definitions" {
   template = "${file("${path.module}/container_definitions/app.json")}"
 
   vars {
