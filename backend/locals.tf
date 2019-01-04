@@ -1,7 +1,7 @@
 locals {
   app_container_name = "nginx"
   app_container_port = "${data.terraform_remote_state.frontend.alb_target_group_port}"
-  target_group_arn  = "${data.terraform_remote_state.frontend.alb_target_group_arn}"
+  target_group_arn   = "${data.terraform_remote_state.frontend.alb_target_group_arn}"
 
   batch_container_name = "batch"
   batch_awslogs_group  = "/ecs-scheduled-task/batch"
