@@ -3,6 +3,9 @@ resource "aws_ecs_cluster" "default" {
   name = "default"
 }
 
+#
+# Web Service
+#
 module "ecs_fargate" {
   source                = "git::https://github.com/tmknom/terraform-aws-ecs-fargate.git?ref=tags/1.2.0"
   name                  = "app"
@@ -34,6 +37,9 @@ module "nginx_ecr" {
   tag_prefix_list = ["release"]
 }
 
+#
+# Batch Service
+#
 module "ecs_scheduled_task" {
   source                = "git::https://github.com/tmknom/terraform-aws-ecs-scheduled-task.git?ref=tags/1.0.0"
   schedule_expression   = "rate(30 minutes)"
