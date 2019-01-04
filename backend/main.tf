@@ -37,6 +37,12 @@ module "nginx_ecr" {
   tag_prefix_list = ["release"]
 }
 
+# https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html
+resource "aws_cloudwatch_log_group" "app_log_group" {
+  name              = "${local.app_awslogs_group}"
+  retention_in_days = "${local.retention_in_days}"
+}
+
 #
 # Batch Service
 #
