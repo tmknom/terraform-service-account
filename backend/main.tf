@@ -19,7 +19,7 @@ module "ecs_fargate" {
 }
 
 data "template_file" "container_definitions" {
-  template = "${file("${path.module}/container_definitions.json")}"
+  template = "${file("${path.module}/container_definitions/app.json")}"
 
   vars {
     container_name = "${local.container_name}"
