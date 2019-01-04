@@ -5,9 +5,8 @@ Live backend resources definition.
 ## Resources
 
 - ECS Service
-- ECS Task Definitions
-- IAM Role of ECS Task Execution
-- Security Group for ECS Service
+- ECS Scheduled Task
+- ECR
 
 ## Design
 
