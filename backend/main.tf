@@ -28,6 +28,8 @@ data "template_file" "app_container_definitions" {
     container_name = "${local.app_container_name}"
     container_port = "${local.app_container_port}"
     image          = "${module.nginx_ecr.ecr_repository_url}:latest"
+    awslogs_group  = "${local.app_awslogs_group}"
+    awslogs_region = "${local.awslogs_region}"
   }
 }
 
@@ -35,6 +37,12 @@ module "nginx_ecr" {
   source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/1.0.0"
   name            = "nginx"
   tag_prefix_list = ["release"]
+}
+
+# https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html
+resource "aws_cloudwatch_log_group" "app_log_group" {
+  name              = "${local.app_awslogs_group}"
+  retention_in_days = "${local.retention_in_days}"
 }
 
 #

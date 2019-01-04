@@ -1,5 +1,6 @@
 locals {
   app_container_name = "nginx"
+  app_awslogs_group  = "/ecs-fargate/app"
   app_container_port = "${data.terraform_remote_state.frontend.alb_target_group_port}"
   target_group_arn   = "${data.terraform_remote_state.frontend.alb_target_group_arn}"
 
