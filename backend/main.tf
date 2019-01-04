@@ -56,7 +56,7 @@ data "template_file" "batch_container_definitions" {
   }
 }
 
-resource "aws_cloudwatch_log_group" "batch" {
+resource "aws_cloudwatch_log_group" "batch_log_group" {
   name              = "${local.batch_awslogs_group}"
   retention_in_days = "${local.retention_in_days}"
 }
