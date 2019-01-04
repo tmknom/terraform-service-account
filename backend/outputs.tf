@@ -163,6 +163,11 @@ output "nginx_ecr_repository_url" {
   description = "The URL of the nginx repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
 }
 
+output "app_cloudwatch_log_group_arn" {
+  value       = "${aws_cloudwatch_log_group.app_log_group.arn}"
+  description = "The Amazon Resource Name (ARN) specifying the app log group."
+}
+
 output "cloudwatch_event_rule_arn" {
   value       = "${module.ecs_scheduled_task.cloudwatch_event_rule_arn}"
   description = "The Amazon Resource Name (ARN) of the rule."
@@ -311,4 +316,9 @@ output "batch_ecr_repository_registry_id" {
 output "batch_ecr_repository_url" {
   value       = "${module.batch_ecr.ecr_repository_url}"
   description = "The URL of the batch repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
+}
+
+output "batch_cloudwatch_log_group_arn" {
+  value       = "${aws_cloudwatch_log_group.batch_log_group.arn}"
+  description = "The Amazon Resource Name (ARN) specifying the batch log group."
 }
