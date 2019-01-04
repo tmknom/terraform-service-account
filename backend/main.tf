@@ -56,6 +56,7 @@ data "template_file" "batch_container_definitions" {
   }
 }
 
+# https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html
 resource "aws_cloudwatch_log_group" "batch_log_group" {
   name              = "${local.batch_awslogs_group}"
   retention_in_days = "${local.retention_in_days}"
