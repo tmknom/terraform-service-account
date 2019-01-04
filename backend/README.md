@@ -92,5 +92,6 @@ Live backend resources definition.
 
 ## References
 
-- [terraform-aws-alb](https://github.com/tmknom/terraform-aws-alb) - Terraform module which creates ALB resources on AWS.
-- [terraform-aws-s3-lb-log](https://github.com/tmknom/terraform-aws-s3-lb-log) - Terraform module which creates S3 Bucket resources for Load Balancer Access Logs on AWS.
+- [terraform-aws-ecs-fargate](https://github.com/tmknom/terraform-aws-ecs-fargate) - Terraform module which creates ECS Fargate resources on AWS.
+- [terraform-aws-ecs-scheduled-task](https://github.com/tmknom/terraform-aws-ecs-scheduled-task) - Terraform module which creates ECS Scheduled Task resources on AWS.
+- [terraform-aws-ecr](https://github.com/tmknom/terraform-aws-ecr) - Terraform module which creates ECR resources on AWS.
