@@ -24,7 +24,7 @@ data "template_file" "container_definitions" {
   vars {
     container_name = "${local.app_container_name}"
     container_port = "${local.app_container_port}"
-    nginx_image    = "${module.nginx_ecr.ecr_repository_url}:latest"
+    image          = "${module.nginx_ecr.ecr_repository_url}:latest"
   }
 }
 

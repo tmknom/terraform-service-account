@@ -1,7 +1,7 @@
 [
   {
     "name": "${container_name}",
-    "image": "${nginx_image}",
+    "image": "${image}",
     "essential": true,
     "portMappings": [
       {
