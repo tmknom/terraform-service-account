@@ -28,6 +28,8 @@ data "template_file" "app_container_definitions" {
     container_name = "${local.app_container_name}"
     container_port = "${local.app_container_port}"
     image          = "${module.nginx_ecr.ecr_repository_url}:latest"
+    awslogs_group  = "${local.app_awslogs_group}"
+    awslogs_region = "${local.awslogs_region}"
   }
 }
 

@@ -3,6 +3,14 @@
     "name": "${container_name}",
     "image": "${image}",
     "essential": true,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "${awslogs_region}",
+        "awslogs-stream-prefix": "${container_name}",
+        "awslogs-group": "${awslogs_group}"
+      }
+    },
     "portMappings": [
       {
         "protocol": "tcp",
