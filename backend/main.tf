@@ -7,7 +7,7 @@ resource "aws_ecs_cluster" "default" {
 # Web Service
 #
 module "ecs_fargate" {
-  source                = "git::https://github.com/tmknom/terraform-aws-ecs-fargate.git?ref=tags/1.2.0"
+  source                = "git::https://github.com/tmknom/terraform-aws-ecs-fargate.git?ref=tags/1.3.0"
   name                  = "app"
   desired_count         = 2
   container_name        = "${local.app_container_name}"
