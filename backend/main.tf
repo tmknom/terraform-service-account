@@ -19,6 +19,10 @@ module "ecs_fargate" {
   container_definitions = "${data.template_file.app_container_definitions.rendered}"
 
   assign_public_ip = true
+
+  # WARNING: If in production environment, you should delete this parameter.
+  #          This parameter can cause service down.
+  enabled = "${local.enabled_paid_resources}"
 }
 
 data "template_file" "app_container_definitions" {
@@ -57,6 +61,10 @@ module "ecs_scheduled_task" {
   subnets               = ["${local.public_subnet_ids}"]
 
   assign_public_ip = true
+
+  # WARNING: If in production environment, you should delete this parameter.
+  #          This parameter can cause service down.
+  enabled = "${local.enabled_paid_resources}"
 }
 
 data "template_file" "batch_container_definitions" {

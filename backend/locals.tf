@@ -11,6 +11,8 @@ locals {
   vpc_id            = "${data.terraform_remote_state.network.vpc_id}"
   awslogs_region    = "${data.aws_region.current.name}"
   retention_in_days = 7
+
+  enabled_paid_resources = "${var.enabled_paid_resources ? 1 : 0}"
 }
 
 data "aws_region" "current" {}
