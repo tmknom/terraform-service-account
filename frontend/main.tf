@@ -19,7 +19,7 @@ module "alb_certificate" {
 }
 
 module "alb" {
-  source             = "git::https://github.com/tmknom/terraform-aws-alb.git?ref=tags/1.4.1"
+  source             = "git::https://github.com/tmknom/terraform-aws-alb.git?ref=tags/1.5.1"
   name               = "app"
   vpc_id             = "${local.vpc_id}"
   subnets            = "${local.subnet_ids}"
