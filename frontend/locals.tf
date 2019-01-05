@@ -10,6 +10,8 @@ locals {
 
   # If false, then certificate will not create.
   enabled_certificate = true
+
+  enabled_paid_resources = "${var.enabled_paid_resources ? 1 : 0}"
 }
 
 data "aws_route53_zone" "default" {

@@ -1,10 +1,10 @@
 output "alb_alias_route53_record_fqdns" {
-  value       = "${aws_route53_record.alb_alias.fqdn}"
+  value       = "${join("", aws_route53_record.alb_alias.*.fqdn)}"
   description = "FQDN built using the alb alias zone domain and name."
 }
 
 output "alb_alias_route53_record_names" {
-  value       = "${aws_route53_record.alb_alias.name}"
+  value       = "${join("", aws_route53_record.alb_alias.*.name)}"
   description = "The name of the alb alias record."
 }
 

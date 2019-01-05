@@ -8,6 +8,10 @@ resource "aws_route53_record" "alb_alias" {
     zone_id                = "${module.alb.alb_zone_id}"
     evaluate_target_health = true
   }
+
+  # WARNING: If in production environment, you should delete this parameter.
+  #          This parameter can cause service down.
+  count = "${local.enabled_paid_resources}"
 }
 
 module "alb_certificate" {
@@ -29,6 +33,10 @@ module "alb" {
   # WARNING: If in production environment, you should delete this parameter.
   #          This parameter can cause service down.
   enable_deletion_protection = "${var.enable_destruction ? false : true}"
+
+  # WARNING: If in production environment, you should delete this parameter.
+  #          This parameter can cause service down.
+  enabled = "${local.enabled_paid_resources}"
 }
 
 module "s3_lb_log" {

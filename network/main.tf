@@ -16,5 +16,5 @@ module "vpc" {
 
   # WARNING: If in production environment, you should set true at enabled_nat_gateway.
   #          ECS can not connect with ECR unless NAT Gateway is existed.
-  enabled_nat_gateway = true
+  enabled_nat_gateway = "${var.enabled_paid_resources}"
 }

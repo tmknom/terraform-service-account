@@ -17,14 +17,19 @@ MONITORING_DIR := ./monitoring
 NETWORK_DIR := ./network
 SECRET_DIR := ./secret
 
-# Define TF_VAR_terraform_backend_bucket_name and TF_VAR_enable_destruction in environment variable in advance.
+# Define following values at environment variable in advance.
+#  - TF_VAR_terraform_backend_bucket_name
+#  - TF_VAR_enable_destruction
+#  - TF_VAR_enabled_paid_resources
 TERRAFORM_BACKEND_BUCKET_NAME := $${TF_VAR_terraform_backend_bucket_name}
 ENABLE_DESTRUCTION := $${TF_VAR_enable_destruction:-false}
+ENABLED_PAID_RESOURCES := $${TF_VAR_enabled_paid_resources:-true}
 
 TERRAFORM_INIT_OPTION := -backend-config="bucket=${TERRAFORM_BACKEND_BUCKET_NAME}"
 TERRAFORM_BACKEND_BUCKET_NAME_OPTION := -var terraform_backend_bucket_name=${TERRAFORM_BACKEND_BUCKET_NAME}
 ENABLE_DESTRUCTION_OPTION := -var enable_destruction=${ENABLE_DESTRUCTION}
-TERRAFORM_OPTIONS := ${TERRAFORM_BACKEND_BUCKET_NAME_OPTION} ${ENABLE_DESTRUCTION_OPTION}
+ENABLED_PAID_RESOURCES_OPTION := -var enabled_paid_resources=${ENABLED_PAID_RESOURCES}
+TERRAFORM_OPTIONS := ${TERRAFORM_BACKEND_BUCKET_NAME_OPTION} ${ENABLE_DESTRUCTION_OPTION} ${ENABLED_PAID_RESOURCES_OPTION}
 
 # all
 plan-all: plan-audit plan-backend plan-datastore plan-deployment plan-frontend plan-iam plan-monitoring plan-network plan-secret ## Run terraform plan all
