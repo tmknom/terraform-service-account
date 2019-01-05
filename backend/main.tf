@@ -49,7 +49,7 @@ resource "aws_cloudwatch_log_group" "app_log_group" {
 # Batch Service
 #
 module "ecs_scheduled_task" {
-  source                = "git::https://github.com/tmknom/terraform-aws-ecs-scheduled-task.git?ref=tags/1.0.0"
+  source                = "git::https://github.com/tmknom/terraform-aws-ecs-scheduled-task.git?ref=tags/1.1.0"
   schedule_expression   = "rate(30 minutes)"
   name                  = "${local.batch_container_name}"
   container_definitions = "${data.template_file.batch_container_definitions.rendered}"
