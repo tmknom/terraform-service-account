@@ -38,6 +38,11 @@ plan-all: plan-audit plan-backend plan-datastore plan-deployment plan-frontend p
 destroy-only-target: ## Run terraform destroy with target option
 	$(call terraform,${STACK_DIR},destroy,${TERRAFORM_OPTIONS} -target=${TARGET})
 
+destroy-paid-resources: ## Run terraform destroy for paid resources
+	TF_VAR_enabled_paid_resources=false && $(call terraform,${BACKEND_DIR},apply,${TERRAFORM_OPTIONS} -auto-approve)
+	TF_VAR_enabled_paid_resources=false && $(call terraform,${FRONTEND_DIR},apply,${TERRAFORM_OPTIONS} -auto-approve)
+	TF_VAR_enabled_paid_resources=false && $(call terraform,${NETWORK_DIR},apply,${TERRAFORM_OPTIONS} -auto-approve)
+
 
 # audit
 plan-audit: ## Run terraform plan audit
